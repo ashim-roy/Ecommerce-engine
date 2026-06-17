@@ -1,9 +1,10 @@
 package com.Ashim.CommerceEngine.controllers;
 
 
-import com.deepak.ProductService.models.Product;
+import com.Ashim.CommerceEngine.models.Product;
+import com.Ashim.CommerceEngine.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,19 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    @GetMapping("/{id}")  //https://localhost:8080/products/1 ==> geta  single product with id 1
-    public Product getSingleProduct(@PathVariable("id") Long productId){
-            return new Product();
+
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
-    @GetMapping        ////https://localhost:8080/products/ ==>  get  all the products
+    @GetMapping("/{id}")  //https://localhost:8080/products/1 ==> geta  single product with id 1
+    public Product getSingleProduct(@PathVariable("id") Long productId){
+            return productService.getSingleProduct(productId);
+    }
+
+    @GetMapping        //https://localhost:8080/products/ ==>  get  all the products
     public List<Product> getAllProducts(){
         return new ArrayList<>();
 
@@ -24,7 +32,7 @@ public class ProductController {
 
 
     @PostMapping
-    public Product createProduct(){
+    public Product createProduct(@RequestBody Product product){
         return new Product();
 
     }
@@ -36,13 +44,12 @@ public class ProductController {
 
     @PatchMapping("/{id}")     //partial update
     public Product replaceProduct(@PathVariable("id") Long productId,  @RequestBody Product product){
-
+        return new Product();
     }
 
     @PutMapping("/{id}")    //full replace
     public Product updateProduct(@PathVariable("id") Long productId,  @RequestBody Product product){
-
-
+        return new Product();
     }
 
 

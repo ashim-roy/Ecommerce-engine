@@ -12,4 +12,5 @@ public class Category extends BaseModel{
     private Category category;
     private String description;
     private String image;
+    private String value;
 }
