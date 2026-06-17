@@ -1,4 +1,4 @@
-package com.deepak.ProductService.models;
+package com.Ashim.CommerceEngine.models;
 
 
 import lombok.Getter;
@@ -6,10 +6,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Product extends BaseModel {
+public class Category extends BaseModel{
     private String title;
-    private String description;
     private double price;
     private Category category;
+    private String description;
     private String image;
 }

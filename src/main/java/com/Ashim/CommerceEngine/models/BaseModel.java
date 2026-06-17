@@ -1,4 +1,4 @@
-package com.deepak.ProductService.models;
+package com.Ashim.CommerceEngine.models;
 
 
 import lombok.Getter;
