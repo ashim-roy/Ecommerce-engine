@@ -1,9 +1,12 @@
 package com.Ashim.CommerceEngine.controllers;
 
 
+import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.models.Product;
 import com.Ashim.CommerceEngine.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +23,11 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")  //https://localhost:8080/products/1 ==> geta  single product with id 1
-    public Product getSingleProduct(@PathVariable("id") Long productId){
-            return productService.getSingleProduct(productId);
+    public ResponseEntity<Product> getSingleProduct(@PathVariable("id") Long productId) throws ProductNotFoundException {
+        return new ResponseEntity<>(
+                productService.getSingleProduct(productId),
+                HttpStatus.OK
+        );
     }
 
     @GetMapping        //https://localhost:8080/products/ ==>  get  all the products

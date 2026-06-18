@@ -1,6 +1,7 @@
 package com.Ashim.CommerceEngine.services;
 
 import com.Ashim.CommerceEngine.dtos.FakeStoreProductDto;
+import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.models.Category;
 import com.Ashim.CommerceEngine.models.Product;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class FakeStoreProductService implements ProductService {
     }
 
     @Override
-    public Product getSingleProduct(Long productId) {
+    public Product getSingleProduct(Long productId) throws  ProductNotFoundException {
        // RestTemplate restTemplate = new RestTemplate();
         FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject(
                 "https://fakestoreapi.com/products/" + productId,
