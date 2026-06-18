@@ -26,8 +26,7 @@ public class ProductController {
 
     @GetMapping        //https://localhost:8080/products/ ==>  get  all the products
     public List<Product> getAllProducts(){
-        return new ArrayList<>();
-
+        return productService.getAllProducts();
     }
 
 

@@ -1,44 +1,64 @@
 package com.Ashim.CommerceEngine.services;
 
-import com.Ashim.CommerceEngine.dtos.FakeStreProductDto;
+import com.Ashim.CommerceEngine.dtos.FakeStoreProductDto;
 import com.Ashim.CommerceEngine.models.Category;
 import com.Ashim.CommerceEngine.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class FakeStoreProductService implements ProductService {
 
-    @Override
-    public Product getSingleProduct(Long productId) {
-        RestTemplate restTemplate = new RestTemplate();
-        FakeStreProductDto fakeStreProductDto = restTemplate.getForObject(
-                "https://fakestoreapi.com/products/" + productId,
-                FakeStreProductDto.class
-        );
-        // convert FakeStreProductDto obj  to product obj
-        return convertFakeStoreStoToProduct(fakeStreProductDto);
+    private final RestTemplate restTemplate;
+
+    public FakeStoreProductService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
-    private Product convertFakeStoreStoToProduct(FakeStreProductDto fakeStreProductDto) {
+    @Override
+    public Product getSingleProduct(Long productId) {
+       // RestTemplate restTemplate = new RestTemplate();
+        FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject(
+                "https://fakestoreapi.com/products/" + productId,
+                FakeStoreProductDto.class
+        );
+        // convert FakeStoreProductDto obj  to product obj
+        assert fakeStoreProductDto != null;
+        return convertFakeStoreStoToProduct(fakeStoreProductDto);
+    }
+
+    private Product convertFakeStoreStoToProduct(FakeStoreProductDto fakeStoreProductDto) {
         Product product = new Product();
         product.setCategory(new Category());
-        product.setId(fakeStreProductDto.getId());
-        product.setDescription(fakeStreProductDto.getDescription());
-        product.setImage(fakeStreProductDto.getImage());
-        product.setPrice(fakeStreProductDto.getPrice());
-        product.setTitle(fakeStreProductDto.getTitle());
+        product.setId(fakeStoreProductDto.getId());
+        product.setDescription(fakeStoreProductDto.getDescription());
+        product.setImage(fakeStoreProductDto.getImage());
+        product.setPrice(fakeStoreProductDto.getPrice());
+        product.setTitle(fakeStoreProductDto.getTitle());
 
-        product.getCategory().setValue(fakeStreProductDto.getCategory());
+        product.getCategory().setValue(fakeStoreProductDto.getCategory());
         return product;
 
     }
 
     @Override
-    public List<Product> getProducts() {
-        return List.of();
+    public List<Product> getAllProducts() {
+        //Type Erasure
+        FakeStoreProductDto [] fakeStoreProductDtos = restTemplate.getForObject(
+                        "https://fakestoreapi.com/products/",
+                         FakeStoreProductDto[].class
+                );
+
+        List<Product> products = new ArrayList<>();
+        assert fakeStoreProductDtos != null;
+        for(FakeStoreProductDto fakeStoreProductDto : fakeStoreProductDtos){
+            products.add(convertFakeStoreStoToProduct(fakeStoreProductDto));
+        }
+
+        return products;
     }
 
     @Override
