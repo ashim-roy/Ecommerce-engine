@@ -11,17 +11,24 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Global exception handler
     @ExceptionHandler(ProductNotFoundException.class)
-    private ResponseEntity<ProductNotFoundExceptionDto>  handleProductNotFoundException() {
+    private ResponseEntity<ProductNotFoundExceptionDto>  handleProductNotFoundException(ProductNotFoundException ex) {
 
         ProductNotFoundExceptionDto pnfdto = new ProductNotFoundExceptionDto();
-        pnfdto.setMessage("Product Not Found with the given id");
+        pnfdto.setMessage("Product with id "   + ex.getProductId()   + " not found");
         pnfdto.setResolution("please try passing a valid productId");
 
         return new ResponseEntity<>(
                 pnfdto,
                 HttpStatus.NOT_FOUND
         );
+    }
+
+    @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
+    private void handleArrayIndexOutOfBoundException(){
 
     }
 }
+
+

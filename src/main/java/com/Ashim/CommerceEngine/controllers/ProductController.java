@@ -57,5 +57,10 @@ public class ProductController {
         return new Product();
     }
 
+    @ExceptionHandler(ProductNotFoundException.class)
+    private String handleProductNotFoundException(){
+        return "Product not found";
+    }
+
 
 }
