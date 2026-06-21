@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 @Getter
 @Setter

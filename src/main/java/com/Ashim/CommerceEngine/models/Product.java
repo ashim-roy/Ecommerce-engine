@@ -10,12 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "products")
-class Product extends BaseModel {
+public class Product extends BaseModel {
     private String title;
-    private String description;
     private double price;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Category category;
+    private String description;
     private String image;
 }
 
