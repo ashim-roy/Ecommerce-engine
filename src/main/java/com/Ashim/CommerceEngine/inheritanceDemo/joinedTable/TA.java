@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.inheritance.joinedTable;
+package com.Ashim.CommerceEngine.inheritanceDemo.joinedTable;
 
 
 import jakarta.persistence.Entity;

@@ -12,18 +12,34 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     // Global exception handler
-    @ExceptionHandler(ProductNotFoundException.class)
-    private ResponseEntity<ProductNotFoundExceptionDto>  handleProductNotFoundException(ProductNotFoundException ex) {
 
-        ProductNotFoundExceptionDto pnfdto = new ProductNotFoundExceptionDto();
-        pnfdto.setMessage("Product with id "   + ex.getProductId()   + " not found");
-        pnfdto.setResolution("please try passing a valid productId");
+
+    //Global Exception Handler.
+    @ExceptionHandler(ProductNotFoundException.class)
+    private ResponseEntity<ProductNotFoundExceptionDto> handleProductNotFoundException() {
+        ProductNotFoundExceptionDto dto = new ProductNotFoundExceptionDto();
+        dto.setMessage("Product not found with the given id.");
+        dto.setResolution("Please try passing a valid productId.");
 
         return new ResponseEntity<>(
-                pnfdto,
-                HttpStatus.NOT_FOUND
+                dto,
+                HttpStatus.UNAUTHORIZED
         );
     }
+
+//    @ExceptionHandler(ProductNotFoundException.class)
+//    private ResponseEntity<ProductNotFoundExceptionDto>  handleProductNotFoundException() {
+//
+//        ProductNotFoundExceptionDto pnfdto = new ProductNotFoundExceptionDto();
+//
+//        pnfdto.setMessage("Product with id "   + ex.getProductId()   + " not found");
+//        pnfdto.setResolution("please try passing a valid productId");
+//
+//        return new ResponseEntity<>(
+//                pnfdto,
+//                HttpStatus.NOT_FOUND
+//        );
+//    }
 
     @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
     private void handleArrayIndexOutOfBoundException(){

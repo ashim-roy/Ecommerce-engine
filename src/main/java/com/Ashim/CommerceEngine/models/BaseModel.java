@@ -7,6 +7,7 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Id;
+import java.io.Serializable;
 
 @Getter
 @Setter

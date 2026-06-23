@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.inheritance.tableperClass;
+package com.Ashim.CommerceEngine.inheritanceDemo.tableperClass;
 
 
 import jakarta.persistence.*;

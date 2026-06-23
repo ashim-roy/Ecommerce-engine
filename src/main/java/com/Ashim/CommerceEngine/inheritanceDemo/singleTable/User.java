@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.inheritance.singleTable;
+package com.Ashim.CommerceEngine.inheritanceDemo.singleTable;
 
 
 import jakarta.persistence.*;

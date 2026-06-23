@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.inheritance.mappedSperClass;
+package com.Ashim.CommerceEngine.inheritanceDemo.mappedSperClass;
 
 import jakarta.persistence.Entity;
 import lombok.Getter;
