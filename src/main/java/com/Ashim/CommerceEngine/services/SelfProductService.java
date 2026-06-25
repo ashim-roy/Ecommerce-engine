@@ -47,6 +47,7 @@ public class SelfProductService implements ProductService{
 
     @Override
     public Product createProduct(Product product) {
+        /*
         long currentTime = System.currentTimeMillis();
         if (product.getCategory() != null) {
             if (product.getCategory().getId() == null) {
@@ -65,6 +66,7 @@ public class SelfProductService implements ProductService{
         }
         product.setCreatedAt(currentTime);
         product.setLastUpdatedAt(currentTime);
+        */
         return productRepository.save(product);
     }
 //

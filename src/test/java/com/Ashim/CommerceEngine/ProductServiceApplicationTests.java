@@ -1,13 +1,18 @@
 package com.Ashim.CommerceEngine;
 
+import com.Ashim.CommerceEngine.models.Category;
+import com.Ashim.CommerceEngine.models.Product;
+import com.Ashim.CommerceEngine.repositories.CategoryRepository;
 import com.Ashim.CommerceEngine.repositories.ProductRepository;
 import com.Ashim.CommerceEngine.repositories.projections.ProductWithTitleAndPrice;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 class ProductServiceApplicationTests {
@@ -15,12 +20,12 @@ class ProductServiceApplicationTests {
 	@Autowired
 	private ProductRepository productRepository;
 
+	@Autowired
+	private CategoryRepository  categoryRepository;
+
 	@Test
 	void contextLoads() {
 	}
-
-
-
 	// test fetch one product with given ID
 	@Disabled
 	@Test
@@ -32,6 +37,7 @@ class ProductServiceApplicationTests {
 	}
 
 	@Test
+	@Transactional
 	void testQueryForListOfProducts() {
 		List<ProductWithTitleAndPrice> productsWithTitleAndPrice =
 				productRepository.getAllTitleAndPrice();
@@ -39,7 +45,18 @@ class ProductServiceApplicationTests {
 		for(ProductWithTitleAndPrice p: productsWithTitleAndPrice){
 			System.out.println(p.getTitle());
 			System.out.println(p.getPrice());
+			System.out.println("-------------------------------------------------");
 		}
+
+		//categoryRepository.deleteById(1L);
+
+		Optional<Category> optionalCategory = categoryRepository.findById(1L);
+
+		List<Product> products = optionalCategory.get().getProducts();
+
+		System.out.println("DEBUG");
+
+
 	}
 
 }

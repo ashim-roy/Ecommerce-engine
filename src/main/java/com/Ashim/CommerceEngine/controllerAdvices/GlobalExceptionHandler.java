@@ -41,6 +41,12 @@ public class GlobalExceptionHandler {
 //        );
 //    }
 
+
+   // @ExceptionHandler(RuntimeException.class)
+    //public void handleRuntimeException() {
+
+    //}
+
     @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
     private void handleArrayIndexOutOfBoundException(){
 
