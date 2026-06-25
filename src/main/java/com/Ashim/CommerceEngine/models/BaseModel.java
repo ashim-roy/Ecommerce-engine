@@ -7,6 +7,9 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.io.Serializable;
 
 @Getter
@@ -16,8 +19,12 @@ public class BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto increment
-    private long id;
-    private long createdAt;
-    private long lastUpdatedAt;
+    private Long id;
+
+    @CreationTimestamp
+    private Long createdAt;
+
+    @UpdateTimestamp
+    private Long lastUpdatedAt;
 
 }

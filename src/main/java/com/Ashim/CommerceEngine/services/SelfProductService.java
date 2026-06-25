@@ -43,20 +43,30 @@ public class SelfProductService implements ProductService{
         return productRepository.findAll();
     }
 
+
+
     @Override
     public Product createProduct(Product product) {
-          if (product.getCategory() != null) {
-              if (product.getCategory().getId() == null) {
+        long currentTime = System.currentTimeMillis();
+        if (product.getCategory() != null) {
+            if (product.getCategory().getId() == null) {
 //                //Create a Category first.
-                  Category category = product.getCategory();
-                  category = categoryRepository.save(category);
-                  product.setCategory(category);
-              }
-          }else {
-              throw new RuntimeException("Category can't be empty while  creating a product");
+                Category category = product.getCategory();
 
-          }
+                category.setCreatedAt(currentTime);
+                category.setLastUpdatedAt(currentTime);
+
+                category = categoryRepository.save(category);
+                product.setCategory(category);
+            }
+        } else {
+            throw new RuntimeException("Category can't be empty while  creating a product");
+
+        }
+        product.setCreatedAt(currentTime);
+        product.setLastUpdatedAt(currentTime);
         return productRepository.save(product);
+    }
 //
 //                String categoryValue = category.getValue();
 //
@@ -74,9 +84,9 @@ public class SelfProductService implements ProductService{
 //        }
 
                 //  System.out.println("DEBUG");
-                  return productRepository.save(product);
-              }
-          }
+                  //return productRepository.save(product);
+
+
 
     @Override
     public void deleteProduct(Long productId) {
