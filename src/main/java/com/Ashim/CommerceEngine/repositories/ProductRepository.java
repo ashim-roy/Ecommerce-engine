@@ -20,7 +20,12 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     Product save(Product product);
 
-    @Query("select p.title as title, p.price as price from products p where p.id= :id")
-   // ProductWithTitleAndPrice  getTitleAndPriceById(Long productId);
-     ProductWithTitleAndPrice  getTitleAndPriceById(@Param("id") Long productId);
+    // Fetch a single product
+    @Query("select p.title as title, p.price as price from products p where p.id = :id")
+    ProductWithTitleAndPrice getTitleAndPriceById(@Param("id") Long productId);
+
+    // Fetch all products
+    @Query("select p.title as title, p.price as price from products p")
+    List<ProductWithTitleAndPrice> getAllTitleAndPrice();
+
 }
