@@ -1,7 +1,7 @@
-package com.Ashim.CommerceEngine.repositories;
+package com.Ashim.CommerceEngine.productService.repositories;
 
-import com.Ashim.CommerceEngine.models.Product;
-import com.Ashim.CommerceEngine.repositories.projections.ProductWithTitleAndPrice;
+import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

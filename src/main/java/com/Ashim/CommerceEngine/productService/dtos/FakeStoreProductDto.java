@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.dtos;
+package com.Ashim.CommerceEngine.productService.dtos;
 
 
 import lombok.Getter;

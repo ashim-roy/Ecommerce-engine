@@ -1,15 +1,14 @@
-package com.Ashim.CommerceEngine.controllers;
+package com.Ashim.CommerceEngine.productService.controllers;
 
 
-import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
-import com.Ashim.CommerceEngine.models.Product;
-import com.Ashim.CommerceEngine.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
+import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController

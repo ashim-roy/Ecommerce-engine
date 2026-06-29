@@ -1,7 +1,7 @@
-package com.Ashim.CommerceEngine.services;
+package com.Ashim.CommerceEngine.productService.services;
 
-import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
-import com.Ashim.CommerceEngine.models.Product;
+import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
+import com.Ashim.CommerceEngine.productService.models.Product;
 
 import java.util.List;
 

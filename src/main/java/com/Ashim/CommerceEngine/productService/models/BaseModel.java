@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.models;
+package com.Ashim.CommerceEngine.productService.models;
 
 
 import jakarta.persistence.GeneratedValue;

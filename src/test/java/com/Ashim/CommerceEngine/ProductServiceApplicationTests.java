@@ -1,10 +1,10 @@
 package com.Ashim.CommerceEngine;
 
-import com.Ashim.CommerceEngine.models.Category;
-import com.Ashim.CommerceEngine.models.Product;
-import com.Ashim.CommerceEngine.repositories.CategoryRepository;
-import com.Ashim.CommerceEngine.repositories.ProductRepository;
-import com.Ashim.CommerceEngine.repositories.projections.ProductWithTitleAndPrice;
+import com.Ashim.CommerceEngine.productService.models.Category;
+import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.CategoryRepository;
+import com.Ashim.CommerceEngine.productService.repositories.ProductRepository;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

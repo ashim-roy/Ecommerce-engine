@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.exceptions;
+package com.Ashim.CommerceEngine.productService.exceptions;
 
 import lombok.Getter;
 

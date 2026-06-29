@@ -1,10 +1,9 @@
-package com.Ashim.CommerceEngine.services;
+package com.Ashim.CommerceEngine.productService.services;
 
-import com.Ashim.CommerceEngine.dtos.FakeStoreProductDto;
-import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
-import com.Ashim.CommerceEngine.models.Category;
-import com.Ashim.CommerceEngine.models.Product;
-import org.springframework.context.annotation.Primary;
+import com.Ashim.CommerceEngine.productService.dtos.FakeStoreProductDto;
+import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
+import com.Ashim.CommerceEngine.productService.models.Category;
+import com.Ashim.CommerceEngine.productService.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

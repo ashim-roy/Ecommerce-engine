@@ -1,9 +1,8 @@
-package com.Ashim.CommerceEngine.models;
+package com.Ashim.CommerceEngine.productService.models;
 
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Getter

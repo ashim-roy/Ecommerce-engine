@@ -1,8 +1,8 @@
 package com.Ashim.CommerceEngine.controllerAdvices;
 
 
-import com.Ashim.CommerceEngine.dtos.ProductNotFoundExceptionDto;
-import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
+import com.Ashim.CommerceEngine.productService.dtos.ProductNotFoundExceptionDto;
+import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

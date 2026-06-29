@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.repositories.projections;
+package com.Ashim.CommerceEngine.productService.repositories.projections;
 
 public interface ProductWithTitleAndPrice {
 

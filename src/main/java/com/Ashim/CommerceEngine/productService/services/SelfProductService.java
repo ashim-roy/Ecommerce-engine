@@ -1,11 +1,9 @@
-package com.Ashim.CommerceEngine.services;
+package com.Ashim.CommerceEngine.productService.services;
 
-import com.Ashim.CommerceEngine.exceptions.ProductNotFoundException;
-import com.Ashim.CommerceEngine.models.Category;
-import com.Ashim.CommerceEngine.models.Product;
-import com.Ashim.CommerceEngine.repositories.CategoryRepository;
-import com.Ashim.CommerceEngine.repositories.ProductRepository;
-import lombok.Setter;
+import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
+import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.CategoryRepository;
+import com.Ashim.CommerceEngine.productService.repositories.ProductRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
