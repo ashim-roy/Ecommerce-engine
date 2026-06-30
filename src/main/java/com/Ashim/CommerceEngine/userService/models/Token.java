@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 @Entity(name = "tokens")
 public class Token extends BaseModel{
-    private String value;
+    private String tokenValue;
     private Date expiryDate;
 
     @ManyToOne

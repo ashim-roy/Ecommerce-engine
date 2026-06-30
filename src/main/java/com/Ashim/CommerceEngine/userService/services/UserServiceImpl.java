@@ -6,12 +6,14 @@ import com.Ashim.CommerceEngine.userService.models.User;
 import com.Ashim.CommerceEngine.userService.repositories.TokenRepository;
 import com.Ashim.CommerceEngine.userService.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -57,7 +59,7 @@ public class UserServiceImpl implements UserService {
             //login successful, create/generate token.
             Token token = new Token();
             token.setUser(user);
-            token.setValue("ahshshsshshshshs");
+            token.setTokenValue("ahshshsshshshshs");
             // token.setExpiryDate(new Date(System.currentTimeMillis() + 3600000*24*30)); // 1 hour/30days from now using co pilot
             //deepak's implementation
             Date currentDate = new Date();
@@ -94,7 +96,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void logout(String tokenValue) {
-        Optional<Token> optionalToken = tokenRepository.findByValue(tokenValue);
+        Optional<Token> optionalToken = tokenRepository.findByTokenValue(tokenValue);
         if (optionalToken.isEmpty()) {
             throw new RuntimeException("Invalid token");
         }

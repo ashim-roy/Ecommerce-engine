@@ -7,9 +7,8 @@ import java.util.Date;
 import java.util.Optional;
 
 public interface TokenRepository extends JpaRepository<Token, Long> {
-    Token saveToken(Token token);
 
-    Optional<Token> findByValue(String value);
+    Optional<Token> findByTokenValue(String tokenValue);
 
     Optional<Token> findByTokenValueAndDeletedAndExpiryDateGreaterThan(
             String tokenValue,
