@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @Entity(name = "users")
 public class User extends BaseModel{
-    private String username;
+    private String name;
     private String password;
     private String email;
 

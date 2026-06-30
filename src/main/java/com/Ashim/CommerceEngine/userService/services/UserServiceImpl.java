@@ -2,7 +2,8 @@ package com.Ashim.CommerceEngine.userService.services;
 
 import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
 import com.Ashim.CommerceEngine.userService.models.Token;
-import com.Ashim.CommerceEngine.userService.models.User
+import com.Ashim.CommerceEngine.userService.models.User;
+import com.Ashim.CommerceEngine.userService.repositories.TokenRepository;
 import com.Ashim.CommerceEngine.userService.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -14,9 +15,11 @@ import java.util.OptionalInt;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
-    public UserServiceImpl(UserRepository userRepository) {
+    private final TokenRepository tokenRepository;
+    public UserServiceImpl(UserRepository userRepository,
+                           TokenRepository tokenRepository) {
         this.userRepository = userRepository;
+        this.tokenRepository = tokenRepository;
     }
 
     @Override
@@ -67,14 +70,11 @@ public class UserServiceImpl implements UserService {
             Date dateAfter30Dats = calendar.getTime();
             token.setExpiryDate(dateAfter30Dats);
 
-            return token;
+            return tokenRepository.save(token); // save the token object and then return
         }
-
-
         // when if comditio not true/ password not matching
         //login failed throw unauthorized user or return null or from excetion we can do it
-
-        throw new UnauthorizedException("Invalid password");
+        throw new UnauthorizedException("login failed, Invalid password");
     }
 
     @Override
@@ -84,6 +84,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void logout(String tokenValue) {
+        Optional<Token> optionalToken = tokenRepository.findByValue(tokenValue);
+        if (optionalToken.isEmpty()) {
+            throw new RuntimeException("Invalid token");
+        }
 
+        Token token = optionalToken.get();
+        token.setDeleted(true);
+        tokenRepository.save(token);
     }
 }

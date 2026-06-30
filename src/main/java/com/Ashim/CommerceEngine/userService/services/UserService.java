@@ -1,6 +1,6 @@
 package com.Ashim.CommerceEngine.userService.services;
 
-import com.Ashim.CommerceEngine.inheritanceDemo.joinedTable.User;
+import com.Ashim.CommerceEngine.userService.models.User;
 import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
 import com.Ashim.CommerceEngine.userService.models.Token;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

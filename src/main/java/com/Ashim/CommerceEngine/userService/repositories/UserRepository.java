@@ -1,6 +1,6 @@
 package com.Ashim.CommerceEngine.userService.repositories;
 
-import com.Ashim.CommerceEngine.inheritanceDemo.joinedTable.User;
+import com.Ashim.CommerceEngine.userService.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
