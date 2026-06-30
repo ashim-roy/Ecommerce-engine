@@ -56,13 +56,10 @@ public class UserController {
         );
     }
 
-    @GetMapping("/validate")
+    @GetMapping("/validate/{tokenValue}")
     public UserDto validateToken(@PathVariable String tokenValue){
-
-
-
-
-        return null;
+        User user = userService.validateToken(tokenValue);
+        return UserDto.from(user);
     }
 
 }
