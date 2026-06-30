@@ -79,7 +79,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User validateToken(String tokenValue) {
-        return null;
+        // check token is present in DB, token i snot deleted and
+        //token expiry time is greater than current time
+        Optional<Token> optionalToken = tokenRepository.
+                findByTokenValueAndDeletedAndExpiryDateGreaterThan(
+                        tokenValue, false, new Date()
+                );
+
+        if (optionalToken.isEmpty()) {
+            return null; //token invalid
+        }
+       return optionalToken.get().getUser();
     }
 
     @Override

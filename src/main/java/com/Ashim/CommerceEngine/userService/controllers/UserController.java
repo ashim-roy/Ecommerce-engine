@@ -58,6 +58,10 @@ public class UserController {
 
     @GetMapping("/validate")
     public UserDto validateToken(@PathVariable String tokenValue){
+
+
+
+
         return null;
     }
 
