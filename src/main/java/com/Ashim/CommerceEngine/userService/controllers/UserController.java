@@ -32,7 +32,7 @@ public class UserController {
                 requestDto.getEmail(),
                 requestDto.getPassword()
         );
-        // convert this userobject into userDto  object
+        // convert this user object into userDto  object
         return UserDto.from(user);  // Reads get the userDtop from User
     }
 
