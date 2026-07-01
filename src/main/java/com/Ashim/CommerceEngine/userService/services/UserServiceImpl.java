@@ -6,7 +6,9 @@ import com.Ashim.CommerceEngine.userService.models.User;
 import com.Ashim.CommerceEngine.userService.repositories.TokenRepository;
 import com.Ashim.CommerceEngine.userService.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -18,10 +20,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     public UserServiceImpl(UserRepository userRepository,
-                           TokenRepository tokenRepository) {
+                           TokenRepository tokenRepository,
+                           BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.tokenRepository = tokenRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
@@ -35,10 +40,12 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        user.setPassword(password);
+       // user.setPassword(password);
+        // password encoding, Instead of every class creating its own object, tell Spring:
+        //	"Create this object once and manage it for me." That's exactly what @Bean does.
+       // BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        // TODO: store  in bcrypt
-
+        user.setPassword(bCryptPasswordEncoder.encode(password));
         return userRepository.save(user);
 
     }
@@ -54,12 +61,20 @@ public class UserServiceImpl implements UserService {
 
         // if present create a token
         User user = optionalUser.get();
-
-        if (user.getPassword().equals(password)) {
+        // if (user.getPassword().equals(password)) {
+        // At the time of matching password, if yu have encrypt the password using BCRYPT Password Encoder,
+        // can you get the PW from DB encrypt the current PW and match? NOPE
+        if (bCryptPasswordEncoder.matches(password, user.getPassword())) {
             //login successful, create/generate token.
             Token token = new Token();
             token.setUser(user);
-            token.setTokenValue("ahshshsshshshshs");
+           // token.setTokenValue("ahshshsshshshshs");
+            // instead of hardcoding it we will use commons-lang3
+           // token.setTokenValue(org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric(128));
+          //  token.setTokenValue(RandomStringUtils.randomAlphanumeric(128)); // deprecated
+            token.setTokenValue(
+                    RandomStringUtils.secure().nextAlphanumeric(128)
+            );
             // token.setExpiryDate(new Date(System.currentTimeMillis() + 3600000*24*30)); // 1 hour/30days from now using co pilot
             //deepak's implementation
             Date currentDate = new Date();

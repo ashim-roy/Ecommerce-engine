@@ -20,7 +20,8 @@ public class BaseModel {
     private Long id;
     private Date createdAt;
     private Date lastModifiedAt;
-    private Boolean deleted;   // Deleted for if token is active or not, token is active or not.
+   //private Boolean deleted;   // Deleted for if token is active or not, token is active or not.
+   private Boolean deleted = false;
 }
 
 

@@ -25,7 +25,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signup")    // //http://localhost:8080/users/signup
     public UserDto signup(@RequestBody SignUpRequestDto requestDto) {;
         User user = userService.signUp(
                 requestDto.getName(),
