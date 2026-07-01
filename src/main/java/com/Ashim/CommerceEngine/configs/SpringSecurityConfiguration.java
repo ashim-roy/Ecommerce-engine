@@ -20,7 +20,7 @@ public class SpringSecurityConfiguration {
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/users/signup",
+                                "/users/signup", "/users/validate/**",
                                 "/users/login"
                         ).permitAll()
                         .anyRequest().authenticated()
