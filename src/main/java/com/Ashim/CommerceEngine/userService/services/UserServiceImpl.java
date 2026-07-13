@@ -120,4 +120,5 @@ public class UserServiceImpl implements UserService {
         token.setDeleted(true);
         tokenRepository.save(token);
     }
+
 }
