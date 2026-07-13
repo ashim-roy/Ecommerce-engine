@@ -15,6 +15,7 @@ public class UserDto {
     private List<Role> roles;
 
     // Notice that from() is declared as static because it creates a new UserDto object from a given User. We don't need an existing UserDto instance to perform the conversion.
+
     public static UserDto from(User user) {
         if(user==null){
             return null;
