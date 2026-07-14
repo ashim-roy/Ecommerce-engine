@@ -37,7 +37,7 @@ public class UserController {
 
     //http://localhost:8080/users/login
     @PostMapping("/login")
-    public Token login(@RequestBody LoginRequestDto requestDto) throws UnauthorizedException {
+    public TokenDto login(@RequestBody LoginRequestDto requestDto) throws UnauthorizedException {
         Token token = userService.login(
                 requestDto.getEmail(),
                 requestDto.getPassword()
@@ -46,7 +46,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public ResponseEntity<Void> logout(@RequestBody LogoutRequestDto requestDto) {
 
         userService.logout(requestDto.getTokenValue());

@@ -21,7 +21,7 @@ public class SpringSecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/users/signup", "/users/validate/**",
-                                "/users/login"
+                                "/users/login", "/users/logout"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );
