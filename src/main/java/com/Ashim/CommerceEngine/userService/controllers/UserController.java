@@ -2,10 +2,7 @@ package com.Ashim.CommerceEngine.userService.controllers;
 
 
 
-import com.Ashim.CommerceEngine.userService.dtos.LoginRequestDto;
-import com.Ashim.CommerceEngine.userService.dtos.LogoutRequestDto;
-import com.Ashim.CommerceEngine.userService.dtos.SignUpRequestDto;
-import com.Ashim.CommerceEngine.userService.dtos.UserDto;
+import com.Ashim.CommerceEngine.userService.dtos.*;
 import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
 import com.Ashim.CommerceEngine.userService.models.Token;
 import com.Ashim.CommerceEngine.userService.models.User;
@@ -13,6 +10,8 @@ import com.Ashim.CommerceEngine.userService.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.Ashim.CommerceEngine.userService.dtos.TokenDto;
 
 
 //http://localhost:8080/users/
@@ -43,7 +42,7 @@ public class UserController {
                 requestDto.getEmail(),
                 requestDto.getPassword()
         );
-        return token;
+        return TokenDto.from(token);
 
     }
 

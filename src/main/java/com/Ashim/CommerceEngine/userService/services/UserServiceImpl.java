@@ -10,10 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -46,6 +43,9 @@ public class UserServiceImpl implements UserService {
        // BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         user.setPassword(bCryptPasswordEncoder.encode(password));
+
+        // to set empty list of role for a newly created user
+        user.setRoles(new ArrayList<>());
         return userRepository.save(user);
 
     }
