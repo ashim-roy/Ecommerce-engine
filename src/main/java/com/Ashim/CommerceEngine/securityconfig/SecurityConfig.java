@@ -87,7 +87,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
+  /*  @Bean
     public UserDetailsService userDetailsService() {
         UserDetails userDetails = User.builder()
                 .username("user")
@@ -96,7 +96,7 @@ public class SecurityConfig {
                 .build();
 
         return new InMemoryUserDetailsManager(userDetails);
-    }
+    }*/
 
 //    @Bean
 //    public RegisteredClientRepository registeredClientRepository() {

@@ -4,7 +4,7 @@ import com.Ashim.CommerceEngine.userService.models.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
-@Component
+// i create bean not spring
 public class CustomGrantedAuthority implements GrantedAuthority {
 
     // i have to convert Role into Athority
