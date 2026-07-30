@@ -29,10 +29,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User signUp(String name, String email, String password) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
-        if (optionalUser.isPresent()) {
+
+        /*if (optionalUser.isPresent()) {
             //redirect to login
             User user = optionalUser.get();
+        }*/
+       // Otherwise duplicate users can be created.
+        if (optionalUser.isPresent()) {
+            throw new IllegalArgumentException(
+                    "User already exists");
         }
+
         // if user not present we create a user
         User user = new User();
         user.setName(name);

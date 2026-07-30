@@ -25,7 +25,10 @@ public class UserController {
     }
 
     @PostMapping("/signup")    // //http://localhost:8080/users/signup
-    public UserDto signup(@RequestBody SignUpRequestDto requestDto) {;
+    public UserDto signup(@RequestBody SignUpRequestDto requestDto) {
+
+        System.out.println(">>> Signup Controller Called <<<");
+
         User user = userService.signUp(
                 requestDto.getName(),
                 requestDto.getEmail(),
