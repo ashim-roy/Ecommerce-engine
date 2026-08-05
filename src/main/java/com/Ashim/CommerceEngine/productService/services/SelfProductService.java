@@ -7,6 +7,7 @@ import com.Ashim.CommerceEngine.productService.repositories.ProductRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,7 +63,9 @@ public class SelfProductService implements ProductService{
         return productRepository.findAll(
                 PageRequest.of(
                         pageNumber,
-                        pageSize)
+                        pageSize,
+                        Sort.by("price").ascending()
+                )
         );
     }
 

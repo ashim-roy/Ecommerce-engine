@@ -99,6 +99,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/users/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users/logout").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/validate/**").permitAll()
+
+                        // Add this
+                        .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults());

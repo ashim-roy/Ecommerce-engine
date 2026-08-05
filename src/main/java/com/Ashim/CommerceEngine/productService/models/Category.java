@@ -1,6 +1,7 @@
 package com.Ashim.CommerceEngine.productService.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +16,11 @@ public class Category extends BaseModel{
    // @Column(unique = true)
     private String value;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "category",
+            cascade = CascadeType.REMOVE)
     private List<Product> products;
 
 

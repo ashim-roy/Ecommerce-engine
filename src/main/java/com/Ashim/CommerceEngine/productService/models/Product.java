@@ -1,6 +1,8 @@
 package com.Ashim.CommerceEngine.productService.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,8 +16,11 @@ public class Product extends BaseModel {
     private String title;
     private double price;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,  CascadeType.REMOVE})
+    @JsonBackReference   // cant removing it to make unidirectional
+    @ManyToOne(cascade = {CascadeType.PERSIST} ) // ,  CascadeType.REMOVE})
     private Category category;
+
+
     private String description;
     private String image;
 }
