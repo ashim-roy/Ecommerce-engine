@@ -16,10 +16,9 @@ public class Product extends BaseModel {
     private String title;
     private double price;
 
-    @JsonBackReference   // cant removing it to make unidirectional
+   // @JsonBackReference   // cant removing it to make unidirectional
     @ManyToOne(cascade = {CascadeType.PERSIST} ) // ,  CascadeType.REMOVE})
     private Category category;
-
 
     private String description;
     private String image;

@@ -16,13 +16,15 @@ public class Category extends BaseModel{
    // @Column(unique = true)
     private String value;
 
+    /*
     @JsonManagedReference
     @OneToMany(
             fetch = FetchType.LAZY,
             mappedBy = "category",
             cascade = CascadeType.REMOVE)
     private List<Product> products;
+    */
 
-
+    private String description;
 
 }
