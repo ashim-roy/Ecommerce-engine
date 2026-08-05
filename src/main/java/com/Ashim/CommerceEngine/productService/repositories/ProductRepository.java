@@ -2,6 +2,8 @@ package com.Ashim.CommerceEngine.productService.repositories;
 
 import com.Ashim.CommerceEngine.productService.models.Product;
 import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,8 +17,12 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     //select * from Products where id = od from input param
 
 
+   // @Override
+    //List<Product> findAll(Pageable pageable);
+    // This should be paginated
     @Override
-    List<Product> findAll();
+    Page<Product> findAll(Pageable pageable);
+
 
     Product save(Product product);
 
