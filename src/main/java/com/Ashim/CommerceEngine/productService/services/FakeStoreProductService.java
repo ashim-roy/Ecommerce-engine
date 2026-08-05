@@ -4,6 +4,8 @@ import com.Ashim.CommerceEngine.productService.dtos.FakeStoreProductDto;
 import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.productService.models.Category;
 import com.Ashim.CommerceEngine.productService.models.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -48,6 +50,7 @@ public class FakeStoreProductService implements ProductService {
 
     }
 
+    /*
     @Override
     public List<Product> getAllProducts() {
         //Type Erasure
@@ -63,7 +66,25 @@ public class FakeStoreProductService implements ProductService {
         }
 
         return products;
+    }*/
+
+    @Override
+    public Page<Product> getAllProducts(int pageNumber, int pageSize) {
+        //Type Erasure
+        FakeStoreProductDto [] fakeStoreProductDtos = restTemplate.getForObject(
+                "https://fakestoreapi.com/products/",
+                FakeStoreProductDto[].class
+        );
+
+        List<Product> products = new ArrayList<>();
+        assert fakeStoreProductDtos != null;
+        for(FakeStoreProductDto fakeStoreProductDto : fakeStoreProductDtos){
+            products.add(convertFakeStoreStoToProduct(fakeStoreProductDto));
+        }
+
+        return new PageImpl<>(products);
     }
+
 
     @Override
     public Product createProduct(Product product) {

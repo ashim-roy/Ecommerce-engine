@@ -5,6 +5,8 @@ import com.Ashim.CommerceEngine.productService.models.Product;
 import com.Ashim.CommerceEngine.productService.repositories.CategoryRepository;
 import com.Ashim.CommerceEngine.productService.repositories.ProductRepository;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,10 +38,34 @@ public class SelfProductService implements ProductService{
         return productOptional.get();
     }
 
+    /*
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+    */
+
+    // it should support pagination as impl in repo
+    // below is new IMPL
+   /*
+    @Override
+    public Page<Product> getAllProducts() {
+        return productRepository.findAll(
+                PageRequest.of(0, 10)
+        );
+    }
+
+    */
+
+    @Override
+    public Page<Product> getAllProducts(int pageNumber, int pageSize) {
+        return productRepository.findAll(
+                PageRequest.of(
+                        pageNumber,
+                        pageSize)
+        );
+    }
+
 
 
 

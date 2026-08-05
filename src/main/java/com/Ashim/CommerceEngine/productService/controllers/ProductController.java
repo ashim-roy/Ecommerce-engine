@@ -30,10 +30,11 @@ public class ProductController {
     }
 
     @GetMapping        //https://localhost:8080/products/ ==>  get  all the products
-    public List<Product> getAllProducts(){
-        return productService.getAllProducts();
+    public List<Product> getAllProducts(@RequestParam int pageNumber, @RequestParam int pageSize) {
+        return productService.getAllProducts(pageNumber, pageSize).getContent();
     }
 
+    // request param = after you pass ? the params in the url, it will be mapped to the method params
 
     @PostMapping
     public Product createProduct(@RequestBody Product product){
