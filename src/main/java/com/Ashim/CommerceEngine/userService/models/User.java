@@ -17,7 +17,7 @@ public class User extends BaseModel{
     private String password;
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
     /* To set list of roles as empty do this
