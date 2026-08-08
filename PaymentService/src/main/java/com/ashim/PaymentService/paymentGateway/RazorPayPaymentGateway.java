@@ -1,15 +1,12 @@
-package com.ashim.PaymentService.services;
+package com.ashim.PaymentService.paymentGateway;
 
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentService {
-
+public class RazorPayPaymentGateway implements PaymentGateway {
+    @Override
     public String initiatePayment(Long orderId, String phoneNumber) {
         return null;
-        // make a call to Payment Gateway to generate payment link
-        
     }
-
 }
