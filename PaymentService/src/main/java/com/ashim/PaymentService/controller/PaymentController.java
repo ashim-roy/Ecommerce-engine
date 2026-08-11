@@ -4,10 +4,7 @@ package com.ashim.PaymentService.controller;
 import com.ashim.PaymentService.dto.InitiatePaymentRequestDto;
 import com.ashim.PaymentService.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/payments")
@@ -25,4 +22,10 @@ public class PaymentController {
         //
         return paymentService.initiatePayment(requestDto.getOrderId(), requestDto.getPhoneNumber());
     }
+
+    @GetMapping("/success")
+    public String paymentSuccess() {
+        return "Payment successful!";
+    }
+
 }

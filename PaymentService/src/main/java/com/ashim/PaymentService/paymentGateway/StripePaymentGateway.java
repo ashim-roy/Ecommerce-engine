@@ -71,6 +71,18 @@ public class StripePaymentGateway implements PaymentGateway {
                                         .setQuantity(1L)  // quantity I waat to order
                                         .build()
                         )
+                        .setAfterCompletion(
+                                PaymentLinkCreateParams.AfterCompletion.builder()
+                                        .setType(
+                                                PaymentLinkCreateParams.AfterCompletion.Type.REDIRECT
+                                        )
+                                        .setRedirect(
+                                                PaymentLinkCreateParams.AfterCompletion.Redirect.builder()
+                                                        .setUrl("http://localhost:9000/payments/success")
+                                                        .build()
+                                        )
+                                        .build()
+                        )
                         .build();
 
 // For SDK versions 29.4.0 or lower, remove '.v1()' from the following line.
