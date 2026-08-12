@@ -79,7 +79,7 @@ public class FakeStoreProductService implements ProductService {
         List<Product> products = new ArrayList<>();
         assert fakeStoreProductDtos != null;
         for(FakeStoreProductDto fakeStoreProductDto : fakeStoreProductDtos){
-            products.add(convertFakeStoreStoToProduct(fakeStoreProductDto));
+            products.add(convertFakeStoreDtoToProduct(fakeStoreProductDto));
         }
 
         return new PageImpl<>(products);
