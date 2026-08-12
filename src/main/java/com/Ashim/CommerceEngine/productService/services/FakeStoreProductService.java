@@ -4,6 +4,7 @@ import com.Ashim.CommerceEngine.productService.dtos.FakeStoreProductDto;
 import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.productService.models.Category;
 import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -136,5 +137,10 @@ public class FakeStoreProductService implements ProductService {
     @Override
     public void replaceProduct(Long productId, Product product) {
 
+    }
+
+    @Override
+    public List<ProductWithTitleAndPrice> getProductSummaries() {
+        return List.of();
     }
 }

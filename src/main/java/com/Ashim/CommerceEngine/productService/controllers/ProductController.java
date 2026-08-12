@@ -3,6 +3,7 @@ package com.Ashim.CommerceEngine.productService.controllers;
 
 import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import com.Ashim.CommerceEngine.productService.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    public ProductController(@Qualifier("fakeStoreProductService") ProductService productService) {
+    public ProductController(@Qualifier("selfProductService") ProductService productService) {
         this.productService = productService;
     }
 
@@ -32,6 +33,11 @@ public class ProductController {
     @GetMapping        //https://localhost:8080/products/ ==>  get  all the products
     public List<Product> getAllProducts(@RequestParam int pageNumber, @RequestParam int pageSize) {
         return productService.getAllProducts(pageNumber, pageSize).getContent();
+    }
+
+    @GetMapping("/summary")  // GET http://localhost:9000/products/summary
+    public List<ProductWithTitleAndPrice> getProductSummaries() {
+        return productService.getProductSummaries();
     }
 
     // request param = after you pass ? the params in the url, it will be mapped to the method params

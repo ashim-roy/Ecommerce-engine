@@ -32,6 +32,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     // Fetch all products
     @Query("select p.title as title, p.price as price from products p")
-    List<ProductWithTitleAndPrice> getAllTitleAndPrice();
+    List<ProductWithTitleAndPrice> findAllProjectedBy();
 
 }

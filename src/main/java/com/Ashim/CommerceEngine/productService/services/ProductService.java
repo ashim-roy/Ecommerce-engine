@@ -2,7 +2,11 @@ package com.Ashim.CommerceEngine.productService.services;
 
 import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundException;
 import com.Ashim.CommerceEngine.productService.models.Product;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
 
 import java.util.List;
 
@@ -21,5 +25,7 @@ public interface ProductService {
     void updateProduct(Long productId, Product product);
 
     void replaceProduct(Long productId, Product product);
+
+    List<ProductWithTitleAndPrice> getProductSummaries();
 
 }

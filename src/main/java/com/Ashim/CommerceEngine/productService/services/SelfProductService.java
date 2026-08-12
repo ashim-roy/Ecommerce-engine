@@ -4,6 +4,7 @@ import com.Ashim.CommerceEngine.productService.exceptions.ProductNotFoundExcepti
 import com.Ashim.CommerceEngine.productService.models.Product;
 import com.Ashim.CommerceEngine.productService.repositories.CategoryRepository;
 import com.Ashim.CommerceEngine.productService.repositories.ProductRepository;
+import com.Ashim.CommerceEngine.productService.repositories.projections.ProductWithTitleAndPrice;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -39,6 +40,11 @@ public class SelfProductService implements ProductService{
 
        // String title = productOptional.get().getTitle();
         return productOptional.get();
+    }
+
+    @Override
+    public List<ProductWithTitleAndPrice> getProductSummaries() {
+        return productRepository.findAllProjectedBy();
     }
 
     /*
