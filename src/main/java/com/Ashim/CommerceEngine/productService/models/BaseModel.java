@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @MappedSuperclass
-public class BaseModel {
+public class BaseModel implements Serializable { // redis need to serilize product object before putting it in cache
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto increment

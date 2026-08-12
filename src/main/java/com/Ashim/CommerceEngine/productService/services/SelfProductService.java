@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("selfProductService")
-@Primary
+//@Primary
 public class SelfProductService implements ProductService{
 
     private ProductRepository productRepository;
@@ -28,6 +28,8 @@ public class SelfProductService implements ProductService{
 
     @Override
     public Product getSingleProduct(Long productId) throws ProductNotFoundException {
+
+        System.out.println("🔥 SELF STORE SERVICE CALLED");
         //Product product = productRepository.findById(productId);
         Optional<Product> productOptional = productRepository.findById(productId);
 
