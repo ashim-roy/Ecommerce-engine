@@ -33,10 +33,10 @@ public class FakeStoreProductService implements ProductService {
         );
         // convert FakeStoreProductDto obj  to product obj
         assert fakeStoreProductDto != null;
-        return convertFakeStoreStoToProduct(fakeStoreProductDto);
+        return convertFakeStoreDtoToProduct(fakeStoreProductDto);
     }
 
-    private Product convertFakeStoreStoToProduct(FakeStoreProductDto fakeStoreProductDto) {
+    private Product convertFakeStoreDtoToProduct(FakeStoreProductDto fakeStoreProductDto) {
         Product product = new Product();
         product.setCategory(new Category());
         product.setId(fakeStoreProductDto.getId());
