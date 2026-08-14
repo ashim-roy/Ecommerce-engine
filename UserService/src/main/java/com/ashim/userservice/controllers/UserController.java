@@ -1,0 +1,75 @@
+package com.ashim.userservice.controllers;
+
+
+import com.Ashim.CommerceEngine.userService.dtos.*;
+import com.Ashim.CommerceEngine.userService.dtos.TokenDto;
+import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
+import com.Ashim.CommerceEngine.userService.models.Token;
+import com.Ashim.CommerceEngine.userService.models.User;
+import com.Ashim.CommerceEngine.userService.services.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+//http://localhost:8080/users/
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    private final UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping("/signup")    // //http://localhost:8080/users/signup
+    public UserDto signup(@RequestBody SignUpRequestDto requestDto) {
+
+        System.out.println(">>> Signup Controller Called <<<");
+
+        User user = userService.signUp(
+                requestDto.getName(),
+                requestDto.getEmail(),
+                requestDto.getPassword()
+        );
+        // convert this user object into userDto  object
+        return UserDto.from(user);  // Reads get the userDtop from User
+    }
+
+    //http://localhost:8080/users/login
+    @PostMapping("/login")
+    public TokenDto login(@RequestBody LoginRequestDto requestDto) throws UnauthorizedException {
+        Token token = userService.login(
+                requestDto.getEmail(),
+                requestDto.getPassword()
+        );
+        return TokenDto.from(token);
+
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestBody LogoutRequestDto requestDto) {
+
+        userService.logout(requestDto.getTokenValue());
+        return new ResponseEntity<>(
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/validate/{tokenValue}")
+    public UserDto validateToken(@PathVariable String tokenValue){
+        User user = userService.validateToken(tokenValue);
+        System.out.println(user);
+        return UserDto.from(user);
+    }
+
+    @GetMapping("/sample") //
+    public void sampleUserApi(){http://localhost:9000/users/sample
+        System.out.println("🔥 Sample User API Called");
+    }
+
+}
+
+
+
+
