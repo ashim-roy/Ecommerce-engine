@@ -32,6 +32,10 @@ public class FakeStoreProductService implements ProductService {
 
         System.out.println("🔥 FAKE STORE SERVICE CALLED");
 
+        // let's make a call to userService
+        System.out.println("🔥 Calling UserService...");
+        restTemplate.getForObject("http://localhost:9000/users/sample", Void.class);
+
         // Fetch product from REDIS
         // 1. Check Redis
         Product cachedProduct = (Product)redisTemplate.opsForHash().get("products", "products_" + productId);

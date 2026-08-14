@@ -65,6 +65,11 @@ public class UserController {
         return UserDto.from(user);
     }
 
+    @GetMapping("/sample") //
+    public void sampleUserApi(){http://localhost:9000/users/sample
+        System.out.println("🔥 Sample User API Called");
+    }
+
 }
 
 
