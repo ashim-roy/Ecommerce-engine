@@ -44,7 +44,7 @@ public class SelfProductService implements ProductService{
 
     @Override
     public List<ProductWithTitleAndPrice> getProductSummaries() {
-        return productRepository.findAllProjectedBy();
+        return productRepository.getAllTitleAndPrice();
     }
 
     /*

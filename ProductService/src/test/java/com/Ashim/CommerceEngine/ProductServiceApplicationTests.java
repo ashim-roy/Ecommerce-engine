@@ -49,13 +49,13 @@ class ProductServiceApplicationTests {
 		}
 
 		//categoryRepository.deleteById(1L);
-
+  /*
 		Optional<Category> optionalCategory = categoryRepository.findById(1L);
 
 		List<Product> products = optionalCategory.get().getProducts();
 
 		System.out.println("DEBUG");
-
+*/
 
 	}
 
