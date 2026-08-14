@@ -1,7 +1,7 @@
 package com.ashim.userservice.dtos;
 
-import com.Ashim.CommerceEngine.userService.models.Role;
-import com.Ashim.CommerceEngine.userService.models.User;
+import com.ashim.userservice.models.Role;
+import com.ashim.userservice.models.User;
 import lombok.Getter;
 import lombok.Setter;
 

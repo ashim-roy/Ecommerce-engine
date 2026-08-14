@@ -1,7 +1,7 @@
 package com.ashim.userservice.security.services;
 
-import com.Ashim.CommerceEngine.userService.models.User;
-import com.Ashim.CommerceEngine.userService.repositories.UserRepository;
+import com.ashim.userservice.models.User;
+import com.ashim.userservice.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

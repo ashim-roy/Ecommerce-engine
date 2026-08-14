@@ -1,12 +1,12 @@
 package com.ashim.userservice.controllers;
 
 
-import com.Ashim.CommerceEngine.userService.dtos.*;
-import com.Ashim.CommerceEngine.userService.dtos.TokenDto;
-import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
-import com.Ashim.CommerceEngine.userService.models.Token;
-import com.Ashim.CommerceEngine.userService.models.User;
-import com.Ashim.CommerceEngine.userService.services.UserService;
+import com.ashim.userservice.dtos.*;
+import com.ashim.userservice.dtos.TokenDto;
+import com.ashim.userservice.exceptions.UnauthorizedException;
+import com.ashim.userservice.models.Token;
+import com.ashim.userservice.models.User;
+import com.ashim.userservice.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

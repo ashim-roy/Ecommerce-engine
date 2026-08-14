@@ -1,6 +1,6 @@
 package com.ashim.userservice.repositories;
 
-import com.Ashim.CommerceEngine.userService.models.Token;
+import com.ashim.userservice.models.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Date;

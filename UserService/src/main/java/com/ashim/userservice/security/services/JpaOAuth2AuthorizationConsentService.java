@@ -1,7 +1,7 @@
 package com.ashim.userservice.security.services;
 
-import com.Ashim.CommerceEngine.userService.security.models.AuthorizationConsent;
-import com.Ashim.CommerceEngine.userService.security.repositories.AuthorizationConsentRepository;
+import com.ashim.userservice.security.models.AuthorizationConsent;
+import com.ashim.userservice.security.repositories.AuthorizationConsentRepository;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

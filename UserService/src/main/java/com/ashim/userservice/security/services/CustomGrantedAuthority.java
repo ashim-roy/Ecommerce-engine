@@ -1,6 +1,6 @@
 package com.ashim.userservice.security.services;
 
-import com.Ashim.CommerceEngine.userService.models.Role;
+import com.ashim.userservice.models.Role;
 import org.springframework.security.core.GrantedAuthority;
 
 // i create bean not spring

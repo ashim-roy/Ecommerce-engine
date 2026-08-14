@@ -1,6 +1,6 @@
 package com.ashim.userservice.dtos;
 
-import com.Ashim.CommerceEngine.userService.models.Token;
+import com.ashim.userservice.models.Token;
 import lombok.Getter;
 import lombok.Setter;
 

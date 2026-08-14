@@ -1,6 +1,6 @@
 package com.ashim.userservice.repositories;
 
-import com.Ashim.CommerceEngine.userService.models.User;
+import com.ashim.userservice.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

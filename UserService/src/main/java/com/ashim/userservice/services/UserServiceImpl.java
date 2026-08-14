@@ -1,10 +1,10 @@
 package com.ashim.userservice.services;
 
-import com.Ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
-import com.Ashim.CommerceEngine.userService.models.Token;
-import com.Ashim.CommerceEngine.userService.models.User;
-import com.Ashim.CommerceEngine.userService.repositories.TokenRepository;
-import com.Ashim.CommerceEngine.userService.repositories.UserRepository;
+import com.ashim.userservice.exceptions.UnauthorizedException;
+import com.ashim.userservice.models.Token;
+import com.ashim.userservice.models.User;
+import com.ashim.userservice.repositories.TokenRepository;
+import com.ashim.userservice.repositories.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -1,8 +1,9 @@
 package com.ashim.userservice.services;
 
-import com.ashim.CommerceEngine.userService.exceptions.UnauthorizedException;
-import com.Ashim.CommerceEngine.userService.models.Token;
-import com.Ashim.CommerceEngine.userService.models.User;
+import com.ashim.userservice.exceptions.UnauthorizedException;
+import com.ashim.userservice.exceptions.UnauthorizedException;
+import com.ashim.userservice.models.Token;
+import com.ashim.userservice.models.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public interface UserService {

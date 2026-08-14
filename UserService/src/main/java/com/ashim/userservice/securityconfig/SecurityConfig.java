@@ -1,4 +1,4 @@
-package com.Ashim.CommerceEngine.securityconfig;
+package com.ashim.userservice.securityconfig;
 
 
 import java.io.IOException;

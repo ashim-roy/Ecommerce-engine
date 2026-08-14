@@ -1,6 +1,6 @@
 package com.ashim.userservice.security.repositories;
 
-import com.Ashim.CommerceEngine.userService.security.models.AuthorizationConsent;
+import com.ashim.userservice.security.models.AuthorizationConsent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

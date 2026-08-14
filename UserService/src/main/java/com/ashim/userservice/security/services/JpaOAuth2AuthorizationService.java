@@ -1,7 +1,7 @@
 package com.ashim.userservice.security.services;
 
-import com.Ashim.CommerceEngine.userService.security.models.Authorization;
-import com.Ashim.CommerceEngine.userService.security.repositories.AuthorizationRepository;
+import com.ashim.userservice.security.models.Authorization;
+import com.ashim.userservice.security.repositories.AuthorizationRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,7 +1,7 @@
 package com.ashim.userservice.security.services;
 
-import com.Ashim.CommerceEngine.userService.models.Role;
-import com.Ashim.CommerceEngine.userService.models.User;
+import com.ashim.userservice.models.Role;
+import com.ashim.userservice.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

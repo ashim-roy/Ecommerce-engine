@@ -1,6 +1,6 @@
 package com.ashim.userservice.security.repositories;
 
-import com.Ashim.CommerceEngine.userService.security.models.Authorization;
+import com.ashim.userservice.security.models.Authorization;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
